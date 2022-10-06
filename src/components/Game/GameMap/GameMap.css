@@ -4,16 +4,16 @@
   width: 20px;
   border: 2px;
 } */
-.square {
-  background :rgb(153, 213, 69);
-  width: 10px;
-  border-color: rgb(149, 145, 82); 
-  border-style:solid;
-}
 
 .map{
   display: flex;
   flex-wrap: wrap;
   width: 663px;
   height: 663px;
+}
+
+.map > div {
+  border: 1px dotted rgba(18, 201, 159, 0.2);
+  background-color: whitesmoke;
+  width: 10.5px;
 }
