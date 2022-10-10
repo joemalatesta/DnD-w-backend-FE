@@ -194,11 +194,11 @@ const CreateChar = () => {
   const getHP = () => {
     let num = currentCharClass.hit_die
     console.log(num);
-    let hP = Math.floor(Math.random()* num)
+    let hP = Math.floor(Math.random()* num)+2
     console.log(hP);
     setRoll(hP)
     console.log(roll);
-    hP = hP + conBonus + raceConBonus
+    hP = hP + conBonus + raceConBonus 
     if(hP<=0){
       setHitPoints(1)
     }else{
