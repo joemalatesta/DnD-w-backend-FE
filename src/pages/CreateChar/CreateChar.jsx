@@ -54,7 +54,7 @@ const CreateChar = () => {
   }, [formData,STR,DEX,CON,WIS,INT,CHA,hitPoints])
   
   useEffect(() => {
-    CON!==null && hitDie !==null && raceConBonus ? setValidButton(true) : setValidButton(false)
+    CON!==null && hitDie !==null? setValidButton(true) : setValidButton(false)
   }, [CON,hitDie])
 
   useEffect(() =>{
