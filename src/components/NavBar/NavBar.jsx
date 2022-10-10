@@ -31,7 +31,7 @@ const NavBar = ({ user, handleLogout, navItems }) => {
           {navItems.map((navItem, idx) =>
             <a key={idx} href={navItem.url}>{navItem.name}</a>
           )}
-          <li style={{color:'purple', }}>Welcome, {user.name}</li>
+          <li style={{color:'black', }}>Welcome, {user.name}</li>
           <select onChange={ value =>  handleClassChange(value) } name="navDropDown" id="navDropDown">
             <option style={{color:'red'}}className='card'value="•••">User Options</option>
             <option className='card'value='Profiles'>Profiles</option>

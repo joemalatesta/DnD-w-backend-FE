@@ -1,4 +1,6 @@
 import './GameMap.css'
+import TraveledMap from './TraveledMap/TraveledMap'
+
 
 const GameMap = (props) => {
   
@@ -20,8 +22,8 @@ const GameMap = (props) => {
 
   return (
       <div>
-        <div className="map">
-          {gamePlayArea}
+        <div hidden={props.viewMap ? true : false} className="map">
+          <TraveledMap gamePlayArea={gamePlayArea}/>
         </div>  
       </div>
     )

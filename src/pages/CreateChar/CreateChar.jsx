@@ -12,34 +12,33 @@ const CreateChar = () => {
   const [hitDie, setHitDie] = useState(null)
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
-  // const [charClass, setCharClass] = useState({})
-  // const [charRace, setCharRace] = useState([])
-  // const [classDetails, setClassDetails] = useState({})
+  const [roll, setRoll] = useState()
   const [STR, setSTR] = useState(null)
   const [DEX, setDEX] = useState(null)
   const [CON, setCON] = useState(null)
   const [INT, setINT] = useState(null)
   const [WIS, setWIS] = useState(null)
   const [CHA, setCHA] = useState(null)
+  const [roll1, setRoll1] = useState(0)
+  const [roll2, setRoll2] = useState(0)
+  const [roll3, setRoll3] = useState(0)
+  const [roll4, setRoll4] = useState(0)
+  const [roll5, setRoll5] = useState(0)
+  const [roll6, setRoll6] = useState(0)
   const [currentCharClass, setCurrentCharClass] = useState({})
   const [currentCharRace, setCurrentCharRace] = useState({})
-  // const [statBonus, setStatBonus] = useState()
-  // const [strBonus, setStrBonus] = useState()
-  // const [dexBonus, setDexBonus] = useState()
   const [conBonus, setConBonus] = useState()
   const [raceConBonus, setRaceConBonus] = useState(null)
-  // const [intBonus, setIntBonus] = useState()
-  // const [wisBonus, setWisBonus] = useState()
-  // const [chaBonus, setChaBonus] = useState()
-  // const [charName, setCharName] = useState()
   const [charSheet, setCharSheet] = useState([])
-  const [roll4Stat, setRoll4Stat] = useState('')
   const [count, setCount] = useState(0)
   const formElement = useRef()
   const [toggle,setToggle]=useState(false)
   const [validForm, setValidForm] = useState(false)
   const [validButton, setValidButton] = useState(false)
   const [inv, setInv] = useState([])
+  const [rollToPass, setRollToPass ] = useState()
+  const [target, setTarget] = useState()
+  
   const [formData, setFormData] = useState({
     name: '',
     class: '',
@@ -48,7 +47,6 @@ const CreateChar = () => {
     background:'',
     experience: 0,
   })
-
   const backgrounds =['Acolyte', 'Charlatan', 'Criminal', 'Entertainer', 'Folk', 'Guild Artisan', 'Hermit', 'Noble', 'Outlander', 'Sage', 'Sailor', 'Soldier', 'Urchin']
 
   useEffect(() => {
@@ -56,8 +54,12 @@ const CreateChar = () => {
   }, [formData,STR,DEX,CON,WIS,INT,CHA,hitPoints])
   
   useEffect(() => {
-    CON!==null && hitDie !==null ? setValidButton(true) : setValidButton(false)
-  }, [CON])
+    CON!==null && hitDie !==null && raceConBonus ? setValidButton(true) : setValidButton(false)
+  }, [CON,hitDie])
+
+  useEffect(() =>{
+
+  },[rollToPass,count])
 
   useEffect(()=> {
     getClassList()
@@ -122,7 +124,8 @@ const CreateChar = () => {
     handleAddCharSheet(form)
   }
   
-  function handleToggle () {
+  function handleToggleRoll () {
+    setRollToPass(roll1)
     statRoll()
     setToggle(!toggle)
   }
@@ -146,6 +149,8 @@ const CreateChar = () => {
       16: 3,
       17: 3,
       18: 4,
+      19: 4,
+      20: 5
     }
     setConBonus(table[CON])    
   }, [CON]);
@@ -165,13 +170,15 @@ const CreateChar = () => {
       let roll1 = rollDSix()
       let roll2 = rollDSix()
       let roll3 = rollDSix()
-      let statNumber = roll1 + roll2 + roll3
-      setRoll4Stat(statNumber)
+      let statNumber = roll1 + roll2 + roll3 + 2
+      if(count === 0)setRoll1(statNumber)
+      if(count === 1)setRoll2(statNumber)
+      if(count === 2)setRoll3(statNumber)
+      if(count === 3)setRoll4(statNumber)
+      if(count === 4)setRoll5(statNumber)
+      if(count === 5)setRoll6(statNumber)
       statNumber = 0
       setCount(count + 1)
-    }else{
-      setRoll4Stat('No More Rolls')
-      return "no more rolls"
     }
   }
   
@@ -179,25 +186,110 @@ const CreateChar = () => {
     currentCharRace.ability_bonuses?.map(abil => {
       if(abil.ability_score.index === 'con' ){
         setRaceConBonus(abil.bonus)
-      }
+      }else
+      setRaceConBonus(0)
     })
   }
 
   const getHP = () => {
     let num = currentCharClass.hit_die
-    let hP = Math.floor(Math.random()*parseInt(num))
+    console.log(num);
+    let hP = Math.floor(Math.random()* num)
     console.log(hP);
+    setRoll(hP)
+    console.log(roll);
     hP = hP + conBonus + raceConBonus
-    setHitPoints(hP)
+    if(hP<=0){
+      setHitPoints(1)
+    }else{
+      setHitPoints(hP)
+    }
   }
-  
-  console.log('hit die',currentCharClass.hit_die);
-  console.log('hit points', hitPoints);
-  console.log('con bonus',conBonus);
-  console.log('race con bonus', raceConBonus);
-  
- 
 
+  const handleRollToPass = () =>{
+ 
+    if(roll1!==null){
+      setRollToPass(roll2)
+      setRoll1(null)
+      return
+    }
+    else if(roll2!==null){
+      setRollToPass(roll3)
+      setRoll2(null)
+      return
+    }
+    else if (roll3!==null){
+      setRollToPass(roll4)
+      setRoll3(null)
+      return
+    }
+    else if(roll4!==null){
+      setRollToPass(roll5)
+      setRoll4(null)
+      return
+    }
+    else if(roll5!==null){
+      setRollToPass(roll6)
+      setRoll5(null)
+      return
+    }
+    else if(roll6!==null){
+      setRoll6(null)
+      return
+    }
+
+    setRollToPass(null)
+  }
+
+  const submitStatToAttrubute=()=>{
+  
+    if(target==='STR'){
+      setSTR(rollToPass)
+      handleRollToPass()
+      return
+    }
+    if(target==='DEX'){
+      setDEX(rollToPass)
+      handleRollToPass()
+      return  
+    }
+    if(target==='CON'){
+      setCON(rollToPass)
+      handleRollToPass()
+      return
+    }
+    if(target==='INT'){
+      setINT(rollToPass)
+      handleRollToPass()
+      return
+    }
+    if(target==='WIS'){
+      setWIS(rollToPass)
+      handleRollToPass()
+      return
+    }
+    if(target==='CHA'){
+      setCHA(rollToPass)
+      handleRollToPass()
+      return
+    }
+  }
+
+  const handleCombo = (e) => {
+    submitStatToAttrubute()
+    handleSwitchAttrib(e)
+    handleRollToPass()
+  } 
+
+  const handleSwitchAttrib =(e)=>{
+    if(count===6)setRollToPass(roll1)
+    if(count===6)setCount(count + 1)
+    setTarget(e?.target?.value)
+    return target
+  } 
+
+
+  // **************************************************************************************************************************************************
   return ( 
     <div className='charSheet'>
       <div className='app'>
@@ -335,22 +427,46 @@ const CreateChar = () => {
             </form>
           </div>
           <div className='stats'>
-            <h3>Attributes</h3>
-            <h2>{roll4Stat}<br/>
-              </h2>
-            <button 
-              onClick={() => {handleToggle()} }  
-              hidden={toggle ? true : false}
-              >Roll Stat</button>
-                  <h5>STR: {STR===null ? <button hidden={toggle ? false : true} onClick={()=>{setSTR(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : `Rolled` }</h5>
-                  <h5>DEX: {DEX===null ? <button hidden={toggle ? false : true} onClick={()=>{setDEX(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h5>
-                  <h5>CON: {CON===null ? <button hidden={toggle ? false : true} onClick={()=>{setCON(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h5>
-                  <h5>INT: {INT===null ? <button hidden={toggle ? false : true} onClick={()=>{setINT(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h5>
-                  <h5>WIS: {WIS===null ? <button hidden={toggle ? false : true} onClick={()=>{setWIS(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h5>
-                  <h5>CHA: {CHA===null ? <button hidden={toggle ? false : true} onClick={()=>{setCHA(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h5>
+              {count < 6?
+                <>
+                  <h3>Attributes Rolls</h3>
+                  <button onClick={() => {handleToggleRoll()} }>Roll Stat</button>
+                </>
+              :
+                <>
+                  <h2>Place your stat</h2>
+                  <h3> {roll6===null ? 'Done' : rollToPass }</h3> 
+                  <div
+                    statname='statname'
+                    id='id'
+                  >
+                    <select statname="statname" id="id" onChange={(id)=>handleSwitchAttrib(id)}>
+                      <option statname=''></option>
+                      <option statname='str' id='str' hidden={ STR===null ? false : true}>STR</option>
+                      <option statname='dex' id='dex' hidden={ DEX===null ? false : true}>DEX</option>
+                      <option statname='con' id='con' hidden={ CON===null ? false : true}>CON</option>
+                      <option statname='int' id='int' hidden={ INT===null ? false : true}>INT</option>
+                      <option statname='wis' id='wis' hidden={ WIS===null ? false : true}>WIS</option>
+                      <option statname='cha' id='cha' hidden={ CHA===null ? false : true}>CHA</option>
+                    </select>  
+                    <button disabled={target? false : true } onClick={(e)=> handleCombo(e)} >Add Stat</button>
+                  </div>
+                  <br/>
+                </>
+              }
+            <h5 hidden={roll1 === null ? true : false }>1st Roll: {roll1}</h5>
+            <h5 hidden={roll2 === null ? true : false }>2nd Roll: {roll2}</h5>
+            <h5 hidden={roll3 === null ? true : false }>3rd Roll: {roll3}</h5>
+            <h5 hidden={roll4 === null ? true : false }>4th Roll: {roll4}</h5>
+            <h5 hidden={roll5 === null ? true : false }>5th Roll: {roll5}</h5>
+            <h5>{ roll6===null ? 'All Stats Placed' : `6th Roll: ${roll6}`}</h5>
           </div> 
           <div className='card'> 
-            <h2>Hit Points</h2>   
+            <h2>Hit Points</h2> 
+            
+            Your roll: {roll}          
+            <h5>Race Bonus: {raceConBonus}</h5>          
+            <h5>Constitution Bonus: {conBonus}</h5>          
             <h5>Class Hit Die: D{currentCharClass.hit_die}</h5>
             <button hidden={ hitPoints===null ? false : true } type="submit" disabled={!validButton} onClick={getHP}>Roll for HP</button>
             <h3  type="number"
@@ -380,10 +496,7 @@ const CreateChar = () => {
             :
               <p>No Sub Races</p>
             }
-            <h2>Starting Stuff</h2>
-            {currentCharClass.starting_equipment?.map((stuff,idx) =>
-              <p key={idx}>{stuff.equipment.name}</p> 
-            )}
+           
           </div> 
         </div>
       </div>
@@ -392,8 +505,3 @@ const CreateChar = () => {
 }
 
 export default CreateChar
-
-
-
-
-

@@ -6,17 +6,16 @@
 } */
 
 .map{
-  background-image: url('../../../../public/images/worldMapOne.png');
+  /* background-image: url('../../../../public/images/worldMapOne.png'); */
   background-size: contain;
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
-  height:500px;
+  width: 650px;
+  height:650px;
 }
 
 .map > div {
+  display: flex;
+  flex-direction: column;
   border: 1px dotted rgba(18, 201, 159, 0.2);
-
-  width: 3px;
-  height: 3px;
 }

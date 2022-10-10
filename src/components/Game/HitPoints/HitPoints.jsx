@@ -1,11 +1,11 @@
 const HitPoints = (props) => {
   
   return (
-    <>
-      <h1>
+    <div className={props.viewHp ? '' : "app card"} hidden={props.viewHp ? true : false}>
+      <h1 hidden={props.viewHp ? true : false } >
         HP: {props.state.state.hitPoints}
       </h1>
-    </>
+    </div>
     )
 }
  
