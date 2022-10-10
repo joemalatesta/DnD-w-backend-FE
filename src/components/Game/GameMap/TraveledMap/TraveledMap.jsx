@@ -1,13 +1,13 @@
-const TraveledMap = (props) => {
+// const TraveledMap = (props) => {
 
 
-  return (
-      <>
-        <div>
-          {props.gamePlayArea}
-        </div>
-      </>
-    )
-}
+//   return (
+//       <>
+//         <div className="map">
+//           {props.gamePlayArea}
+//         </div>
+//       </>
+//     )
+// }
  
-export default TraveledMap;
+// export default TraveledMap;

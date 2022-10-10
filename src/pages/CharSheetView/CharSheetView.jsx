@@ -88,9 +88,7 @@ const CharSheetView = () => {
       <div className='app charSheetCard'>
         <div id='charSheet'>
           <button onClick={()=> navigate('/AllCharacters')}>Back</button>
-          <Link to='/start-game' state={{state}} key={state.name}>
-            <button>Play the Game</button>
-          </Link>
+        
       
           <img 
             id='race-pic'
@@ -150,4 +148,6 @@ const CharSheetView = () => {
 export default CharSheetView
 
 
-
+{/* <Link to='/start-game' state={{state}} key={state.name}>
+<button>Play the Game</button>
+</Link> */}

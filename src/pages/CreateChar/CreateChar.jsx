@@ -54,7 +54,7 @@ const CreateChar = () => {
   }, [formData,STR,DEX,CON,WIS,INT,CHA,hitPoints])
   
   useEffect(() => {
-    CON!==null && hitDie !==null? setValidButton(true) : setValidButton(false)
+    CON!==null && hitDie !==null && raceConBonus !== null ?setValidButton(true) : setValidButton(false)
   }, [CON,hitDie])
 
   useEffect(() =>{
@@ -194,8 +194,10 @@ const CreateChar = () => {
   const getHP = () => {
     let num = currentCharClass.hit_die
     console.log(num);
-    let hP = Math.floor(Math.random()* num)+2
+    let hP = Math.floor(Math.random()* num)
     console.log(hP);
+    hP = hP + 2
+    console.log(hP)
     setRoll(hP)
     console.log(roll);
     hP = hP + conBonus + raceConBonus 

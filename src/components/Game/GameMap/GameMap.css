@@ -1,4 +1,4 @@
-/* #game-grid-square {
+/* /* #game-grid-square {
   background-color: palegreen;
   height: 20px;
   width: 20px;
@@ -6,16 +6,18 @@
 } */
 
 .map{
-  /* background-image: url('../../../../public/images/worldMapOne.png'); */
+  background-image: url('../../../../public/images/worldMapOne.png');
   background-size: contain;
   display: flex;
+  background-color: black;
   flex-wrap: wrap;
-  width: 650px;
-  height:650px;
+  width: 700px;
+  height:700px;
 }
 
 .map > div {
-  display: flex;
-  flex-direction: column;
   border: 1px dotted rgba(18, 201, 159, 0.2);
-}
+  width: 5px;
+  height: 5px;
+} */
+
