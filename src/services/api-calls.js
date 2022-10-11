@@ -47,3 +47,9 @@ export function getRaceStats(charRaceName) {
   .then(res => {return res.json()})
   .then(data => data)
 }
+
+export function getRules() {
+  return fetch(`${baseUrl}/api/rule-sections`)
+  .then(res => {return res.json()})
+  .then(data => data)
+}
