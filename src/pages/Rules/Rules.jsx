@@ -1,13 +1,10 @@
 import { getRules } from '../../services/api-calls'
 import { useState, useEffect } from 'react'
-
+import { Link } from "react-router-dom";
 
 
 const Rules = (props) => {
   const [rules, setRules] = useState([])
-
-  console.log(rules);
-
 
   useEffect(()=> {
     getRules()
@@ -19,10 +16,18 @@ const Rules = (props) => {
   return ( 
     <>
     <div className='app'>
+      <h1 className='title card'>The Rules</h1>
       <div className='largeCard'>
-      {rules.map(rule=> <h2>{rule.name}</h2>)}
-
+        {rules.map(rule=> 
+          <div  key={rule.index}>
+          <Link
+            to='/rule-details'
+            state={{ rule }}
+            >{rule.name}</Link><br/>
+          </div>
+        )}
       </div>
+      
     </div>
     </>
    )

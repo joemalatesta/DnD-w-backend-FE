@@ -25,7 +25,7 @@ import CategoryDetails from './pages/Store/CategoryDetails/CategoryDetails'
 import ItemDetails from './pages/Store/ItemDetails/ItemDetails'
 import GameStart from './pages/Game/GameStart'
 import Rules from './pages/Rules/Rules'
-
+import RuleDetails from './pages/RuleDetails/RuleDetails'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -77,6 +77,7 @@ const App = () => {
         <Route path="/store" element={<Store/>} />
         <Route path="/storeCategory" element={<CategoryDetails/>} />
         <Route path="/storeItem" element={<ItemDetails/>} />
+        <Route path="/rule-details" element={<RuleDetails/>} />
       </Routes>
     </div>
   )
