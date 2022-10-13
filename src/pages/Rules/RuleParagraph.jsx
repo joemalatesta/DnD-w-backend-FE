@@ -1,9 +1,5 @@
 import Markdown from 'markdown-to-jsx';
-
-
-
 const RuleParagraph = (props) => {
-
   return(
     <>
      {props.details ?
@@ -16,5 +12,4 @@ const RuleParagraph = (props) => {
     </>
   )
 }
- 
 export default RuleParagraph

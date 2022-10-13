@@ -13,6 +13,7 @@ const Die = () => {
   let animationDuration  = 100
   
   const randomFace = () => {
+   
     let face = Math.floor((Math.random() * sides)) + initialSide
     lastFace = face === lastFace ? randomFace() : face
     return face;
@@ -24,6 +25,7 @@ const Die = () => {
   }
   
   btn?.addEventListener('click', (evt)=>{
+    evt.preventDefault()
     rollTo(die.setAttribute('href',evt))
     clearTimeout(timeoutId)
     timeoutId = setTimeout(function () {

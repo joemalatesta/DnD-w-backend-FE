@@ -500,7 +500,9 @@ const CreateChar = () => {
             }
            
           </div> 
-          <Die></Die>
+          <div>
+            <Die></Die>
+          </div>
         </div>
       </div>
     </div>

@@ -19,17 +19,15 @@ const RuleDetails = () => {
 
   return ( 
     <>
-      <div className="app largeCard" >
-
-      <div className="app card">
-        <h1>{ruleDetails.name}</h1>
+      <div className="app">
+        <div className="app largeCard" >
+          <div className="app">
+            <h1>{ruleDetails.name}</h1>
+          </div>
+          <RuleParagraph details={ruleDetails.desc} />
+          <button onClick={()=> navigate('/rules')}>Back</button>
+        </div>
       </div>
-      
-      <RuleParagraph details={ruleDetails.desc} />
-      
-      <button onClick={()=> navigate('/rules')}>Back</button>
-      </div>
-      
     </>
    )
 }

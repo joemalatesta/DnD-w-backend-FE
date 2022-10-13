@@ -15,20 +15,19 @@ const Rules = (props) => {
 
   return ( 
     <>
-    <div className='app'>
-      <h1 className='title card'>The Rules</h1>
-      <div className='largeCard'>
-        {rules.map(rule=> 
-          <div  key={rule.index}>
-          <Link
-            to='/rule-details'
-            state={{ rule }}
-            >{rule.name}</Link><br/>
-          </div>
-        )}
+      <div className='app'>
+        <div className='largeCard'>
+          <h1 className='app'>The Rules</h1>
+          {rules.map(rule=> 
+            <div  key={rule.index}>
+              <Link
+                to='/rule-details'
+                state={{ rule }}
+              >{rule.name}</Link><br/>
+            </div>
+          )}
+        </div>
       </div>
-      
-    </div>
     </>
    )
 }
