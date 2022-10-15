@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './LoginForm.module.css'
 import * as authService from '../../services/authService'
-import Die from '../Die/Die'
+
 
 const LoginForm = props => {
   const [formData, setFormData] = useState({

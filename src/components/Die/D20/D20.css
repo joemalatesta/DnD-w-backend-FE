@@ -70,21 +70,6 @@
 #die[data-face="5"] {
   transform: rotateX(-53deg) rotateY(288deg);
 }
-#die[data-face="16"] {
-  transform: rotateX(127deg) rotateY(-72deg);
-}
-#die[data-face="17"] {
-  transform: rotateX(127deg) rotateY(-144deg);
-}
-#die[data-face="18"] {
-  transform: rotateX(127deg) rotateY(-216deg);
-}
-#die[data-face="19"] {
-  transform: rotateX(127deg) rotateY(-288deg);
-}
-#die[data-face="20"] {
-  transform: rotateX(127deg) rotateY(-360deg);
-}
 #die[data-face="6"] {
   transform: rotateX(11deg) rotateZ(180deg) rotateY(0deg);
 }
@@ -114,6 +99,21 @@
 }
 #die[data-face="15"] {
   transform: rotateX(11deg) rotateY(-540deg);
+}
+#die[data-face="16"] {
+  transform: rotateX(127deg) rotateY(-72deg);
+}
+#die[data-face="17"] {
+  transform: rotateX(127deg) rotateY(-144deg);
+}
+#die[data-face="18"] {
+  transform: rotateX(127deg) rotateY(-216deg);
+}
+#die[data-face="19"] {
+  transform: rotateX(127deg) rotateY(-288deg);
+}
+#die[data-face="20"] {
+  transform: rotateX(127deg) rotateY(-360deg);
 }
 #die .face {
   position: absolute;
@@ -159,21 +159,6 @@
 #die .face:nth-child(5) {
   transform: rotateY(-288deg) translateZ(33.5px) translateY(-12.9px) rotateX(53deg);
 }
-#die .face:nth-child(16) {
-  transform: rotateY(-108deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
-}
-#die .face:nth-child(17) {
-  transform: rotateY(-36deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
-}
-#die .face:nth-child(18) {
-  transform: rotateY(36deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
-}
-#die .face:nth-child(19) {
-  transform: rotateY(108deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
-}
-#die .face:nth-child(20) {
-  transform: rotateY(180deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
-}
 #die .face:nth-child(6) {
   transform: rotateY(360deg) translateZ(75px) translateY(54.18px) rotateZ(180deg) rotateX(-11deg);
 }
@@ -204,6 +189,21 @@
 #die .face:nth-child(15) {
   transform: rotateY(540deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
 }
+#die .face:nth-child(16) {
+  transform: rotateY(-108deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+#die .face:nth-child(17) {
+  transform: rotateY(-36deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+#die .face:nth-child(18) {
+  transform: rotateY(36deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+#die .face:nth-child(19) {
+  transform: rotateY(108deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+#die .face:nth-child(20) {
+  transform: rotateY(180deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
 
 ul {
   list-style: none;
@@ -215,12 +215,7 @@ ul > li {
   margin: 10px 10px;
 }
 
-#btn {
-  background-color: rgb(77, 115, 254);
-  border-radius: 5px;
-  color: white;
-  
-}
+
 
 /*  Html and CSS by
 https://codepen.io/vicentemundim */

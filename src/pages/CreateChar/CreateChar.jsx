@@ -5,8 +5,10 @@ import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
 import * as charSheetService from '../../services/charSheetService'
 import { useNavigate } from 'react-router-dom'
-import Die from '../../components/Die/Die'
-const CreateChar = () => {
+import D20 from '../../components/Die/D20/D20'
+import D10 from '../../components/Die/D10/D10'
+
+  const CreateChar = () => {
   const navigate = useNavigate()
   const [hitPoints, setHitPoints] = useState(null)
   const [hitDie, setHitDie] = useState(null)
@@ -500,11 +502,15 @@ const CreateChar = () => {
             }
            
           </div> 
-          <div>
-            <Die></Die>
-          </div>
+
+              <D20 />
+
         </div>
-      </div>
+        </div>
+              <D10/>
+        <section>
+        </section>
+        
     </div>
   )
 }

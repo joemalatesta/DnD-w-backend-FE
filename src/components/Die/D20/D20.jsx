@@ -1,38 +1,42 @@
-import React from 'react';
-import "./style.css"
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import "./D20.css"
 
 
-const Die = () => {
-
+const D20 = () => {
+  const [face, setFace] = useState()
   const die = document.getElementById('die')
-  const btn = document.getElementById('btn')
+
   let sides = 20
   let initialSide = 1
   let lastFace
   let timeoutId
-  let animationDuration  = 100
+  let animationDuration  = 50
+ 
+  useEffect(() => {
+    setFace(Math.floor((Math.random() * sides)) + initialSide)
+  }, [face, initialSide, sides])
   
   const randomFace = () => {
-   
-    let face = Math.floor((Math.random() * sides)) + initialSide
-    lastFace = face === lastFace ? randomFace() : face
-    return face;
+    let face1 = Math.floor((Math.random() * sides)) + initialSide
+    lastFace = face1 === lastFace ? randomFace() : face1
+    return face1
   }
   
   const rollTo = (face) => {
     clearTimeout(timeoutId)
     die.setAttribute('data-face', face)
   }
-  
-  btn?.addEventListener('click', (evt)=>{
-    evt.preventDefault()
-    rollTo(die.setAttribute('href',evt))
+
+  const handleRollDie = (evt) => {
+    evt.preventDefault()  
+    rollTo(randomFace())
     clearTimeout(timeoutId)
-    timeoutId = setTimeout(function () {
+    timeoutId = setTimeout(()=> {
       rollTo(randomFace())
     }, animationDuration)
     return false
-  })
+  }
 
   return (
     <>
@@ -62,11 +66,11 @@ const Die = () => {
           </div>
         </div>
         <div>
-          <button id='btn'>Roll Da Die</button>
+          <button onClick={(e)=>handleRollDie(e)} >Roll Da Die</button>
         </div>
       </form>
     </>
   )
 }
   
- export default Die 
+ export default D20 

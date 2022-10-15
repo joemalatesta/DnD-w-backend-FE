@@ -26,11 +26,14 @@ import ItemDetails from './pages/Store/ItemDetails/ItemDetails'
 import GameStart from './pages/Game/GameStart'
 import Rules from './pages/Rules/Rules'
 import RuleDetails from './pages/RuleDetails/RuleDetails'
+import Dice from './pages/Dice/Dice'
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
   const [navItems, setNavItems] = useState([
+    {url: "/dice", name: "Dice"},
     {url: "/rules", name: "Rules"},
     {url: "/class-list", name: "Class List"}, 
     {url: "/race-list", name: "Race List"},
@@ -55,6 +58,7 @@ const App = () => {
     <div className='basepic fixed'>
       <NavBar navItems={navItems} user={user} handleLogout={handleLogout} />
       <Routes>
+        <Route path='/dice' element={<Dice />} />
         <Route path='/rules' element={<Rules />} />
         <Route path='/class-list' element={<ClassList />} />
         <Route path='/class' element={<ClassDetails />} />
