@@ -500,17 +500,9 @@ import D10 from '../../components/Die/D10/D10'
             :
               <p>No Sub Races</p>
             }
-           
           </div> 
-
-              <D20 />
-
         </div>
-        </div>
-              <D10/>
-        <section>
-        </section>
-        
+      </div>
     </div>
   )
 }
