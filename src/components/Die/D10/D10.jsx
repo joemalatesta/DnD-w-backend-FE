@@ -55,7 +55,7 @@ const D10 = () => {
             <figure className="face face-9"></figure>
           </div>
         </div>
-        <button onClick={(e)=> handleRollDie(e)} >Roll Da Die</button>
+        <button onClick={(e)=> handleRollDie(e)} >Coming soon</button>
       </form>
     </>
   )
