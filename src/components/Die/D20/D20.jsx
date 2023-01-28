@@ -25,6 +25,7 @@ const D20 = () => {
   
   const rollTo = (face) => {
     clearTimeout(timeoutId)
+    console.log(typeof(die));
     die.setAttribute('data-face', face)
   }
 
@@ -66,7 +67,7 @@ const D20 = () => {
           </div>
         </div>
         <div>
-          <button onClick={(e)=>handleRollDie(e)} >Roll Da Die</button>
+          <button onClick={(e)=>handleRollDie(e)} >Roll D-20</button>
         </div>
       </form>
     </>

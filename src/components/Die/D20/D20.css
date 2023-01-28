@@ -1,4 +1,4 @@
-@-webkit-keyframes roll {
+/* @-webkit-keyframes roll {
   10% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
@@ -14,8 +14,8 @@
   90% {
     transform: rotateX(480deg) rotateY(960deg) rotateZ(0deg);
   }
-}
-@keyframes roll {
+} */
+/* @keyframes roll {
   10% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
@@ -31,7 +31,7 @@
   90% {
     transform: rotateX(480deg) rotateY(960deg) rotateZ(0deg);
   }
-}
+} */
 
 .content {
   margin: auto auto;

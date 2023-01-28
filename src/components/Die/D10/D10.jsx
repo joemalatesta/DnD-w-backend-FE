@@ -4,7 +4,7 @@ import "./D10.css"
 
 
 const D10 = () => {
-  const [face10, setFace10] = useState()
+  const [face, setFace] = useState()
   const d10 = document.getElementById('d10')
 
   let sides = 10
@@ -14,24 +14,24 @@ const D10 = () => {
   let animationDuration  = 50
  
   useEffect(() => {
-    setFace10(Math.floor((Math.random() * sides)) + initialSide)
-  }, [])
+    setFace(Math.floor((Math.random() * sides)) + initialSide)
+  }, [face, initialSide, sides])
   
   const randomFace = () => {
     let face1 = Math.floor((Math.random() * sides)) + initialSide
-    console.log(face1);
     lastFace = face1 === lastFace ? randomFace() : face1
     return face1
   }
 
   const rollTo = (face) => {
     clearTimeout(timeoutId)
-    d10?.setAttribute('data-face', face)
+    console.log(typeof(d10))
+    d10.setAttribute('data-face', face)
   }
 
   const handleRollDie = (evt) => {
     evt.preventDefault()  
-    rollTo(face10)
+    rollTo(randomFace())
     clearTimeout(timeoutId)
     timeoutId = setTimeout(()=> {
       rollTo(randomFace())
@@ -42,8 +42,8 @@ const D10 = () => {
     <>
       <form>  
         <div className="content">
-          <div className="d10">
-            <figure className="face face-0"></figure>
+          <div id="d10">
+            <figure className="face face-10"></figure>
             <figure className="face face-1"></figure>
             <figure className="face face-2"></figure>
             <figure className="face face-3"></figure>
@@ -55,7 +55,7 @@ const D10 = () => {
             <figure className="face face-9"></figure>
           </div>
         </div>
-        <button onClick={(e)=> handleRollDie(e)} >Coming soon</button>
+        <button onClick={(e)=> handleRollDie(e)} >Roll D-10</button>
       </form>
     </>
   )
