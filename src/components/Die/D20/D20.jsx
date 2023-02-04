@@ -25,7 +25,6 @@ const D20 = () => {
   
   const rollTo = (face) => {
     clearTimeout(timeoutId)
-    console.log(typeof(die));
     die.setAttribute('data-face', face)
   }
 

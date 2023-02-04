@@ -25,7 +25,6 @@ const D10 = () => {
 
   const rollTo = (face) => {
     clearTimeout(timeoutId)
-    console.log(typeof(d10))
     d10.setAttribute('data-face', face)
   }
 
