@@ -78,12 +78,13 @@ body {
   background-attachment: fixed;
 }
 .card {
+  
   background-color: bisque;
   border: 1px solid black;
   justify-items: center;
   padding: 15px;
   margin: 1rem;
-  width: 250px;
+  width: 280px;
   border-radius: 10px;
 }
 
@@ -255,3 +256,7 @@ a:visited {
   color: black;
 }
 
+.dice{
+ display: flex;
+ justify-content: center;
+}

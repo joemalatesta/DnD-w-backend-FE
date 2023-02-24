@@ -1,5 +1,3 @@
-
-
 .content {
   margin: auto auto;
   position: relative;
@@ -22,12 +20,7 @@
   -webkit-animation: roll 3s linear;
           animation: roll 3s linear;
 }
-#d10[data-face="10"] {
-  transform: rotateX(-45deg) rotateY(0deg);
-}
-#d10 .face.face-10 {
-  transform: rotateY(0deg) translateZ(34px) translateY(6.96px) rotateX(45deg);
-}
+
 #d10[data-face="1"] {
   transform: rotateX(-225deg) rotateY(-72deg);
 }
@@ -82,6 +75,13 @@
 #d10 .face.face-9 {
   transform: rotateY(360deg) translateZ(-34px) translateY(93.04px) rotateZ(180deg) rotateY(180deg) rotateX(45deg);
 }
+#d10[data-face="10"] {
+  transform: rotateX(-45deg) rotateY(0deg);
+}
+#d10 .face.face-10 {
+  transform: rotateY(0deg) translateZ(34px) translateY(6.96px) rotateX(45deg);
+}
+
 #d10 .face {
   position: absolute;
   left: 50%;
@@ -97,11 +97,10 @@
           backface-visibility: hidden;
   counter-increment: steps 1;
 }
+
 #d10 .face:first-child {
   counter-increment: steps 0;
 }
-
-
 
 #d10 .face:before {
   content: counter(steps);
@@ -116,9 +115,6 @@
   width: 104px;
   height: 100px;
 }
-
-
-
 
 #d10 .face:after {
   content: "";

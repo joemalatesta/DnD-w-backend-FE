@@ -1,0 +1,88 @@
+.content {
+  margin: auto auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  perspective: 1500px;
+}
+
+#d8 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+  cursor: pointer;
+  transform: rotateX(-45deg);
+}
+
+#d8 .rolling {
+  -webkit-animation: roll 3s linear;
+          animation: roll 3s linear;
+}
+
+#d8[data-face="1"] {transform: rotateX(-225deg) rotateY(-72deg);}
+#d8[data-face="2"] {transform: rotateX(-45deg) rotateY(72deg);}
+#d8[data-face="3"] {transform: rotateX(-225deg) rotateY(-144deg);}
+#d8[data-face="4"] {transform: rotateX(-45deg) rotateY(144deg);}
+#d8[data-face="5"] {transform: rotateX(-225deg) rotateY(-216deg);}
+#d8[data-face="6"] {transform: rotateX(-45deg) rotateY(216deg);}
+#d8[data-face="7"] {transform: rotateX(-225deg) rotateY(-288deg);}
+#d8[data-face="8"] {transform: rotateX(-45deg) rotateY(288deg);}
+
+#d8 .face.face-1 {transform: rotateY(72deg) translateZ(-34px) translateY(93.04px) rotateZ(180deg) rotateY(180deg) rotateX(45deg);}
+#d8 .face.face-3 {transform: rotateY(144deg) translateZ(-34px) translateY(93.04px) rotateZ(180deg) rotateY(180deg) rotateX(45deg);}
+#d8 .face.face-5 {transform: rotateY(216deg) translateZ(-34px) translateY(93.04px) rotateZ(180deg) rotateY(180deg) rotateX(45deg);}
+#d8 .face.face-7 {transform: rotateY(288deg) translateZ(-34px) translateY(93.04px) rotateZ(180deg) rotateY(180deg) rotateX(45deg);}
+
+#d8 .face.face-2 {transform: rotateY(-70deg) translateZ(32px) translateY(6.96px) rotateX(50deg);}
+#d8 .face.face-4 {transform: rotateY(-140deg) translateZ(34px) translateY(6.96px) rotateX(45deg);}
+#d8 .face.face-6 {transform: rotateY(-216deg) translateZ(34px) translateY(6.96px) rotateX(45deg);}
+#d8 .face.face-8 {transform: rotateY(-288deg) translateZ(34px) translateY(6.96px) rotateX(45deg);}
+
+#d8 .face {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin: 0 -55px;
+  border-left: 55px solid transparent;
+  border-right: 55px solid transparent;
+  border-bottom: 100px solid blue; 
+  opacity: 0.75;
+  width: 2px;
+  height: 2px;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  counter-increment: steps 1;
+}
+
+#d8 .face:first-child {
+  counter-increment: steps 1;
+}
+
+#d8 .face:before {
+  content: counter(steps);
+  position: absolute;
+  top: 25px;
+  left: -52px;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  font-size: 60px;
+  text-align: center;
+  line-height: 100px;
+  width: 104px;
+  height: 100px;
+}
+
+#d .face:after {
+  content: "";
+  position: absolute;
+  bottom: -124px;
+  left: -52px;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
+  border-top: 24px solid rgba(30, 180, 20, 0.75);
+  width: 0px;
+  height: 0px;
+}
